@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { AboutUs } from "./components/About/About";
+
+import { HomeScreen } from "./components/HomeScreen/HomeScreen";
+import { Navigation } from "./components/Navigation/Navigation";
+import { TeacherCreate } from "./components/Teachers/TeacherCreate/TeacherCreate"; 
+import { TeacheList } from "./components/Teachers/TeacherList/TeacherList";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+
+            <div className="App">
+              <header className="App-header">
+                <Navigation />
+
+                <Routes>
+                    <Route path="/" element={<HomeScreen />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/teachers" element={<TeacheList />} />
+                    <Route path="/teachers/create" element={<TeacherCreate />} />
+                    <Route path="*" element={<h1>404</h1>} />
+                </Routes>
+              </header>
+            </div>
+    );
 }
 
 export default App;

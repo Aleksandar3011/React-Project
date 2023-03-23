@@ -1,0 +1,116 @@
+.teachers {
+    background: rgb(250, 222, 77);
+    background: radial-gradient(
+        circle,
+        rgba(250, 222, 77, 1) 0%,
+        rgba(252, 251, 184, 1) 100%
+    );
+    display: flex;
+    flex-direction: column;
+}
+
+.distance {
+    margin: auto 50px;
+}
+
+.teachers .teachers_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    margin-top: 42px;
+    margin-bottom: 42px;
+}
+
+.teachers .header {
+    margin: 0 auto;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+}
+
+.teachers .header .title,
+.teachers .header .slogan {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: rgb(59, 59, 59);
+    background-color: rgb(0, 162, 255);
+    width: 400px;
+    color: #fade4d;
+    color: white;
+    text-shadow: 3px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.teachers .header .title {
+    padding-top: 20px;
+}
+
+.teachers .header .slogan {
+    padding-bottom: 12px;
+}
+
+.teachers .image_wrapper {
+    width: 50%;
+    padding: 4px 12px;
+    height: 80%;
+
+}
+
+.teachers .image_wrapper .image {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.teachers .teacher_card {
+    width: 398px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+}
+
+.teachers .teacher_card .teacher_content {
+    width: 50%;
+    padding: 8px 0px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_name {
+    margin: 0px;
+    padding-bottom: 6px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_subject {
+    margin: 0px;
+    padding-bottom: 6px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_desc {
+    margin: 0px;
+    padding-bottom: 6px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_contacts {
+    margin: 0px;
+    padding-bottom: 6px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_price {
+    margin: 0px;
+    padding-bottom: 6px;
+}
+
+.teachers .teacher_card .teacher_content .teacher_details {
+    margin-left: 120px;
+    padding: 4px 8px;
+    background-color: rgb(0, 162, 255);
+    border-radius: 6px;
+    border: 1px solid black;
+}

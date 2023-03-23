@@ -1,0 +1,61 @@
+:root {
+    --clr-primaryBlue: rgb(0, 162, 255);
+    --clr-btnYellow: #fade4d;
+}
+
+.distance {
+    margin: auto 50px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--clr-primaryBlue);
+    height: 60px;
+}
+
+.header .logo {
+    width: 74px;
+}
+
+.header .logo .logo_img{
+    width: 100%;
+}
+
+.header .header_nav {
+    display: flex;
+}
+
+.header .nav,
+.header .nav_register {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+.header .nav {
+    padding-left: 0px;
+    margin-left: -16px;
+    align-items: center;
+}
+
+.header .nav li a,
+.header .nav_register li a {
+    text-decoration: none;
+    color: black;
+}
+
+.header .nav li a:hover {
+    text-decoration: underline;
+}
+
+.header .nav_register li a:hover {
+    text-decoration: underline;
+}
+
+.signUp{
+    border-radius: 50px;
+    padding: 2px 18px;
+    background-color: var(--clr-btnYellow);
+}
