@@ -57,7 +57,7 @@ export const TeacherCreate = () => {
             <input type="text" name="price" id="price" placeholder='20' value={values.price} onChange={onChangeHanlder}></input>
             
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" id="email" placeholder='ivan.ivanov@abv.bg' value={values.email} onChange={onChangeHanlder}></input>
+            <input type="email" name="email" id="email" placeholder='ivan.ivanov@abv.bg' value={values.email} onChange={onChangeHanlder}></input>
 
             <label htmlFor="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" id="phoneNumber" placeholder='+3598........' value={values.phoneNumber} onChange={onChangeHanlder}></input>
