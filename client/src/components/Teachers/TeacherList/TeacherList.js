@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import styles from "./TeacherList.module.css";
-import * as teachersServices from '../../../services/teachersServices';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from "react";
+
 import { Teacher } from "./Teacher";
+import { TeacherContext } from "../../../contexts/TeacherContext";
+
+import styles from "./TeacherList.module.css";
 
 export const TeacheList = () => {
-    const [teachers, setTeachers] = useState([]);
+
+    const {teachers, onTeacherGetAll} = useContext(TeacherContext);
 
     useEffect(() => {
-        teachersServices.getAll()
-            .then((teacher) => {
-                setTeachers(teacher);
-            });
-    }, []);
-
+        onTeacherGetAll()
+    }, [])
 
     return (
         <main className={styles.teachers}>

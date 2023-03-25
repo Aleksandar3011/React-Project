@@ -55,3 +55,20 @@
     background-color: #fade4d;
     cursor: pointer;
 }
+
+.register .register_form .register_userType{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.register .register_form .register_userType .register_radio{
+    width: 20px;
+    margin-right: 18px;
+    
+}
+
+
+.register .register_form .register_userType .register_type{
+    padding: 0px;
+}

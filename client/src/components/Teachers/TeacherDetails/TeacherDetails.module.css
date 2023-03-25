@@ -1,0 +1,8 @@
+.teacher .teacher_imgWrapper{
+    width: 15%;
+}
+
+.teacher .teacher_imgWrapper .teacher_img{
+    width: 100%;
+    height: 100%;
+}

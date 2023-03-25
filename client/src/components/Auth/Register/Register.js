@@ -11,6 +11,7 @@ export const Register = () => {
             email: "",
             password: "",
             confPassword: "",
+            userType: "",
         },
         onRegisterSubmit
     );
@@ -49,7 +50,34 @@ export const Register = () => {
                     onChange={changeHandler}
                 ></input>
 
-                <input className={styles.register_btn} type="submit" value="Register" />
+                <div className={styles.register_userType}>
+                    <label htmlFor="teacher" className={styles.register_type}>Teacher</label>
+                    <input
+                        className={styles.register_radio}
+                        type="radio"
+                        name="userType"
+                        id="teacher"
+                        value="teacher"
+                        onChange={changeHandler}
+                        checked={values.userType === "teacher"}
+                    />
+                    <label htmlFor="student" className={styles.register_type}>Student</label>
+                    <input
+                        className={styles.register_radio}
+                        type="radio"
+                        name="userType"
+                        id="student"
+                        value="student"
+                        onChange={changeHandler}
+                        checked={values.userType === "student"}
+                    />
+                </div>
+
+                <input
+                    className={styles.register_btn}
+                    type="submit"
+                    value="Register"
+                />
             </form>
         </section>
     );

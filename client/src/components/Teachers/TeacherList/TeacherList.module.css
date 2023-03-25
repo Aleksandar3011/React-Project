@@ -20,6 +20,7 @@
 
     margin-top: 42px;
     margin-bottom: 42px;
+    /* height: 500px; */
 }
 
 .teachers .header {
@@ -65,10 +66,10 @@
 
 .teachers .teacher_card {
     width: 398px;
-    height: 280px;
+    height: 315px;
     display: flex;
     align-items: center;
-
+    position: relative;
     border: 1px solid rgb(184, 184, 184);
     border-radius: 14px;
     overflow: hidden;
@@ -79,7 +80,7 @@
 
 .teachers .teacher_card .teacher_content {
     width: 50%;
-    padding: 8px 0px;
+    padding: 8px 4px;
 }
 
 .teachers .teacher_card .teacher_content .teacher_name {
@@ -100,6 +101,7 @@
 .teachers .teacher_card .teacher_content .teacher_contacts {
     margin: 0px;
     padding-bottom: 6px;
+    margin-bottom: 6px;
 }
 
 .teachers .teacher_card .teacher_content .teacher_price {
@@ -108,9 +110,19 @@
 }
 
 .teachers .teacher_card .teacher_content .teacher_details {
-    margin-left: 120px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin-left: 106px;
     padding: 4px 8px;
     background-color: rgb(0, 162, 255);
     border-radius: 6px;
     border: 1px solid black;
+    text-decoration: none;
+    
+}
+
+.teachers .teacher_card .teacher_content .teacher_details:hover{
+    text-decoration: underline;
+    color: rgb(214, 214, 214);
 }

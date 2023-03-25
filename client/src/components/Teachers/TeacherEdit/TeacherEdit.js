@@ -1,15 +1,29 @@
-import { useContext } from "react";
-import styles from "./TeacherCreate.module.css";
-// import * as teachersServices from "../../../services/teacherServices";
-// import { useNavigate } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from "react";
+import styles from "../TeacherCreate/TeacherCreate.module.css";
 import { useForm } from "../../../hooks/useForm";
 import { TeacherContext } from "../../../contexts/TeacherContext";
+import { teacherServiceFactory } from "../../../services/teacherServices";
 
-export const TeacherCreate = () => {
-    const { onTeacherCreate } = useContext(TeacherContext);
+export const TeacherEdit = () => {
 
-    const { values, changeHandler, onSubmit } = useForm(
+    const { currTeacher, onTeacherUpdate } = useContext(TeacherContext);
+
+    const teacherService = teacherServiceFactory();
+
+
+    const { values, changeHandler, onSubmit, changeValues } = useForm(
         {
+            // imageUrl: `${currTeacher.imageUrl}`,
+            // firstName: `${currTeacher.firstName}`,
+            // secondName: `${currTeacher.secondName}`,
+            // school: `${currTeacher.school}`,
+            // city: `${currTeacher.city}`,
+            // subject: `${currTeacher.subject}`,
+            // description: `${currTeacher.description}`,
+            // price: `${currTeacher.price}`,
+            // email: `${currTeacher.email}`,
+            // phoneNumber: `${currTeacher.phoneNumber}`,
             imageUrl: "",
             firstName: "",
             secondName: "",
@@ -21,12 +35,19 @@ export const TeacherCreate = () => {
             email: "",
             phoneNumber: "",
         },
-        onTeacherCreate
+        onTeacherUpdate
     );
+
+    useEffect(() => {
+        teacherService.getOne(currTeacher._id)
+            .then(result => {
+                changeValues(result);
+            });
+    }, [currTeacher._id]);
 
     return (
         <section className={styles.teacherCreate}>
-            <h1 className={styles.teacherCreate_title}>Create a Teacher</h1>
+            <h1 className={styles.teacherCreate_title}>Edit</h1>
             <form className={styles.teacherCreate_form} onSubmit={onSubmit}>
             <label htmlFor="imageUrl">Image</label>
                 <input

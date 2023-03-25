@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const Navigation = () => {
-    const { isAuthenticated, userEmail } = useContext(AuthContext);
+    const { isAuthenticated, userEmail, userType } = useContext(AuthContext);
 
     return (
         <header className={styles.header}>
@@ -32,7 +32,7 @@ export const Navigation = () => {
                     <li>
                         <Link to="/teachers">Teachers</Link>
                     </li>
-                    {isAuthenticated && (
+                    {isAuthenticated && userType === "teacher" && (
                         <li>
                             <Link to="/teachers/create">Create a Teacher</Link>
                         </li>
