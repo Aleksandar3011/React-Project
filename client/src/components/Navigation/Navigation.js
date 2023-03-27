@@ -24,11 +24,17 @@ export const Navigation = () => {
                         <Link to="/about">About Us</Link>
                     </li>
                     <li>
-                        <Link to="">Tests</Link>
+                        <Link to="/tests">Tests</Link>
                     </li>
-                    {/* <li>
-                        <Link to="#">Subjects</Link>
-                    </li> */}
+
+
+                    {isAuthenticated && (
+                    <li>
+                        <Link to="/test/create">Create Test</Link>
+                    </li> 
+                    )}
+
+
                     <li>
                         <Link to="/teachers">Teachers</Link>
                     </li>
@@ -53,7 +59,10 @@ export const Navigation = () => {
 
             {isAuthenticated && (
                 <ul className={`${styles.nav_register} ${styles.distance}`}>
-                    <span>{userEmail}</span>
+                    <div className={styles.userInfo}>
+                        <span>{userEmail}</span>
+                        <span className={styles.userInfo_type}>({userType})</span>
+                    </div>
                     <li className={styles.signUp}>
                         <Link to="/logout">Logout</Link>
                     </li>

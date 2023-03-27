@@ -10,16 +10,18 @@ export const TeacherCreate = () => {
 
     const { values, changeHandler, onSubmit } = useForm(
         {
-            imageUrl: "",
-            firstName: "",
-            secondName: "",
-            school: "",
-            city: "",
-            subject: "",
-            description: "",
-            price: "",
-            email: "",
-            phoneNumber: "",
+            imageUrl:
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPpRpxUOspVzbU446Q6RBzkX29XNZ6QEceeVpezh1ImmN85_5_mpALLJ3zqyVptUqpWmI&usqp=CAU",
+            firstName: "Sashko",
+            secondName: "Valchanov",
+            school: "Freelance",
+            city: "Sofia",
+            subject: "Programming",
+            description:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+            price: "20",
+            email: "sashko@abv.bg",
+            phoneNumber: "0899122833",
         },
         onTeacherCreate
     );
@@ -28,7 +30,7 @@ export const TeacherCreate = () => {
         <section className={styles.teacherCreate}>
             <h1 className={styles.teacherCreate_title}>Create a Teacher</h1>
             <form className={styles.teacherCreate_form} onSubmit={onSubmit}>
-            <label htmlFor="imageUrl">Image</label>
+                <label htmlFor="imageUrl">Image</label>
                 <input
                     type="text"
                     name="imageUrl"

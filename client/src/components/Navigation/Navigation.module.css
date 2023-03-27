@@ -59,3 +59,16 @@
     padding: 2px 18px;
     background-color: var(--clr-btnYellow);
 }
+
+.userInfo{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 2px 12px;
+}
+
+.userInfo .userInfo_type{
+    text-transform: uppercase;
+}
