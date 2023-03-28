@@ -1,89 +1,97 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
-import { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { TestContext } from "../../../contexts/TestContext";
-import { useForm } from "../../../hooks/useForm";
 import styles from "./TestList.module.css";
 export const TestItem = () => {
     const testId = useParams();
+    const { currTest, onTestGetOne } = useContext(TestContext);
 
-    const { currTest, onTestGetOne, onAnswers } = useContext(TestContext);
+    const [showFinalResult, setFinalResult] = useState(false);
+    const [score, setScore] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
 
     useEffect(() => {
         onTestGetOne(testId.testId);
     }, [testId]);
 
-    let isQ = false;
-
-    if (currTest.questions) {
-        isQ = true;
+    let isQuestions = false;
+    let questions = currTest.questions;
+    if (questions) {
+        isQuestions = true;
     }
 
-    const { values, changeHandler, onSubmit } = useForm(
-        {
-            testQuestion: '',
-            answer: "",
-        },
-        onAnswers
-    );
+    const optionClicked = (isCorrect) => {
+        if (isCorrect) {
+            setScore(score + 1);
+        }
+        if (currentQuestion + 1 < questions.length) {
+            setCurrentQuestion(currentQuestion + 1);
+        } else {
+            setFinalResult(true);
+        }
+    };
 
-    console.log(values);
+    const onRestartGame = () => {
+        setScore(0);
+        setCurrentQuestion(0);
+        setFinalResult(false);
+    };
 
     return (
-        <article className={styles.test}>
-            <h2>{currTest.title}</h2>
-            <h2>{currTest.subject}</h2>
-            <form onSubmit={onSubmit}>
-                {isQ &&
-                    currTest.questions.map((q) => (
-                        <>
-                            <hr></hr>
-                            <input type="text" name={q.testQuestion} value={q.testQuestion} onChange={changeHandler}></input>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="answer"
-                                    value={q.firstAnswer}
-                                    checked={values.answer === q.firstAnswer}
-                                    onChange={changeHandler}
-                                />
-                                {q.firstAnswer}
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="answer"
-                                    value={q.secondAnswer}
-                                    checked={values.answer === q.secondAnswer}
-                                    onChange={changeHandler}
-                                />
-                                {q.secondAnswer}
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="answer"
-                                    value={q.thirdAnswer}
-                                    checked={values.answer === q.thirdAnswer}
-                                    onChange={changeHandler}
-                                />
-                                {q.thirdAnswer}
-                            </label>
-                            <label>
-                                <input
-                                    type="radio"
-                                    name="answer"
-                                    value={q.fourthAnswer}
-                                    checked={values.answer === q.fourthAnswer}
-                                    onChange={changeHandler}
-                                />
-                                {q.fourthAnswer}
-                            </label>
-                        </>
-                    ))}
-                <input type="submit" value="Send" />
-            </form>
-        </article>
+        <div className={styles.currTest}>
+            {/* // 1.Header */}
+            <div className={styles.currTest_header}>
+                <h1 className={styles.currTest_title}>{currTest.title}</h1>
+                <h3 className={styles.currTest_owner}>
+                    (Created by: {currTest.owner})
+                </h3>
+                <h2 className={styles.currTest_subject}>
+                    Subject: {currTest.subject}
+                </h2>
+            </div>
+            {/* //   2. Current Score */}
+            {/* <h2 className={styles.currTest_currentScore}>Current Score: {score}</h2> */}
+
+            {showFinalResult ? (
+                <div className={styles.final_result}>
+                    <h1 className={styles.final_title}>Final Result</h1>
+                    <h2 className={styles.final_outOf}>
+                        {score} out of {isQuestions && questions.length} correct
+                        - ({((score / questions.length) * 100).toFixed(2)}%)
+                    </h2>
+                    <button className={styles.final_restartTest} onClick={() => onRestartGame()}>
+                        Restart Test
+                    </button>
+                    <Link className={styles.final_exit} to='/tests'>Exit</Link>
+                </div>
+            ) : (
+                <div className={styles.question_card}>
+                    <h2 className={styles.currTest_outOf}>
+                        Question {currentQuestion + 1} out of{" "}
+                        {isQuestions && questions.length}
+                    </h2>
+                    <h3 className={styles.currTest_question}>
+                        {isQuestions && questions[currentQuestion].testQuestion}
+                    </h3>
+                    <ul className={styles.currTest_ul}>
+                        {isQuestions &&
+                            questions[currentQuestion].options.map((option) => {
+                                return (
+                                    <li
+                                        className={styles.currTest_li}
+                                        onClick={() =>
+                                            optionClicked(option.isCorrect)
+                                        }
+                                        key={option.id}
+                                    >
+                                        {option.text}
+                                    </li>
+                                );
+                            })}
+                    </ul>
+                </div>
+            )}
+        </div>
     );
 };

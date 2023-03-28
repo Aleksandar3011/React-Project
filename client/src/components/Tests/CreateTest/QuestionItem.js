@@ -4,7 +4,7 @@ import { useForm } from "../../../hooks/useForm";
 import styles from "./CreateTest.module.css";
 
 export const QuestionItem = () => {
-    const { onSaveQuestion, questions } = useContext(TestContext);
+    const { onSaveQuestion } = useContext(TestContext);
 
     const { values, changeHandler, onSubmit } = useForm(
         {
@@ -15,10 +15,6 @@ export const QuestionItem = () => {
             fourthAnswer: "",
         }, onSaveQuestion);
 
-    const previewQuestion = () => {
-        console.log(questions);
-        return questions.map(q => <li>{q.testQuestion}</li>)
-    };
 
     return (
         <>
@@ -38,7 +34,7 @@ export const QuestionItem = () => {
                         name="firstAnswer"
                         value={values.firstAnswer}
                         onChange={changeHandler}
-                    />
+                    /><span>RIGTH ANSWER</span>
                 </label>
                 <label>
                     b:
@@ -72,8 +68,6 @@ export const QuestionItem = () => {
                 </label>
 
                 <input type="submit" value="Save Question" onClick={onSubmit}/>
-
-                <button type="button" value="Preview Questions" onClick={previewQuestion}>Preview Question</button>
         </>
     );
 };

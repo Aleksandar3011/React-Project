@@ -19,7 +19,7 @@
     width: 74px;
 }
 
-.header .logo .logo_img{
+.header .logo .logo_img {
     width: 100%;
 }
 
@@ -48,19 +48,25 @@
 
 .header .nav li a:hover {
     text-decoration: underline;
+    /* color: black;
+    text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93,
+        -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93,
+        -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93,
+        -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93,
+        -8px 7px #cdd2d5; */
 }
 
 .header .nav_register li a:hover {
     text-decoration: underline;
 }
 
-.signUp{
+.signUp {
     border-radius: 50px;
     padding: 2px 18px;
     background-color: var(--clr-btnYellow);
 }
 
-.userInfo{
+.userInfo {
     display: flex;
     gap: 6px;
     align-items: center;
@@ -69,6 +75,6 @@
     padding: 2px 12px;
 }
 
-.userInfo .userInfo_type{
+.userInfo .userInfo_type {
     text-transform: uppercase;
 }

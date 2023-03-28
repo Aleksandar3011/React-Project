@@ -11,6 +11,7 @@ export const CreateTest = () => {
     const { values, changeHandler, onSubmit } = useForm({
         title: "",
         subject: "",
+        owner: "",
     }, onSaveTest);
 
     return (
@@ -23,16 +24,24 @@ export const CreateTest = () => {
                     name="title"
                     value={values.title}
                     onChange={changeHandler}
-                ></input>
+                />
                 <br></br>
                 <input
                     type="text"
                     placeholder="SUBJECT"
+                    className={styles.createTest_name}
                     name="subject"
                     value={values.subject}
                     onChange={changeHandler}
                 />
                 <br></br>
+                <input
+                    type="text"
+                    placeholder="First Name and Last Name"
+                    name="owner"
+                    value={values.owner}
+                    onChange={changeHandler}
+                /><br></br>
 
                 <QuestionItem />
 

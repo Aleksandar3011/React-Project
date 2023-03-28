@@ -16,10 +16,19 @@ export const TestProvider = ({
     const [questions, setQuestions] = useState([]);
     const [currTest, setCurrTest] = useState({});
     const [allTest, setAllTest] = useState([]);
-    const [answers, setAnswers] = useState([])
+    // const [answers, setAnswers] = useState([]);
 
     const onSaveQuestion = (values) => {
-        setQuestions(state => [...state, values]);
+        // setQuestions(state => [...state, values]);
+        setQuestions(state => state.concat({
+                testQuestion: values.testQuestion,
+                options: [
+                    {id: 0, text: values.firstAnswer, isCorrect: true},
+                    {id: 1, text: values.secondAnswer},
+                    {id: 2, text: values.thirdAnswer},
+                    {id: 3, text: values.fourthAnswer}
+                ],
+            }))
     };
 
     const onSaveTest = async (values) => {
@@ -37,17 +46,17 @@ export const TestProvider = ({
         setCurrTest(result);
     };
 
-    const onAnswers = (values) => {
-        setAnswers(values)
-        console.log(values);
-    };
+    // const onAnswers = (values) => {
+    //     setAnswers(values)
+    // };
+
 
     const testContext = {
         onSaveQuestion,
         onSaveTest,
         onTestGetAll,
         onTestGetOne,
-        onAnswers,
+        // onAnswers,
         currTest,
         questions,
         allTest

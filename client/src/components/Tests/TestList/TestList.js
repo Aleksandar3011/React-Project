@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 import { TestContext } from "../../../contexts/TestContext";
 
@@ -14,11 +15,13 @@ export const TestList = () => {
 
     return (
         <>
+            <h1 className={styles.tests_title}>Tests</h1>
             {allTest.map((t) => (
-                <article className={styles.test}>
+                <article className={styles.test} key={uuidv4()}>
                     <h2>{t.title}</h2>
-                    <h2>{t.subject}</h2>
-                    <Link to={`/test/${t._id}`}>Start Test</Link>
+                    <h4>Subject: {t.subject}</h4>
+                    <p className={styles.test_owner}>Created by: <span>{t.owner}</span></p>
+                    <Link className={styles.test_startTest} to={`/test/${t._id}`}>Start Test</Link>
                 </article>
             ))}
         </>
