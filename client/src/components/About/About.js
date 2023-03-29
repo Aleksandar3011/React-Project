@@ -85,7 +85,7 @@ export const AboutUs = () => {
                 </div>
 
                 <div className={styles.aboutUs_me}>
-                    <h1>Aleksandar Valchanov</h1>
+                    <h1>Alexander Valchanov</h1>
                     <p>
                         I developed this platform with the goal of creating
                         affordable tests for students, teachers, and students.

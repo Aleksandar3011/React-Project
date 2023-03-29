@@ -43,7 +43,7 @@ export const TestItem = () => {
         onAnswers(values);
     };
 
-    (values);
+    
 
         return (
             <article className={styles.test}>

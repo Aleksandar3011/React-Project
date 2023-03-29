@@ -35,12 +35,12 @@ function App() {
                                 <Route path="/teachers" element={<TeacheList />} />
                                 <Route path="/teacher/:teacherId/edit" element={<TeacherEdit />} />
                                 <Route path="/tests" element={<TestList />}/>
+                                <Route path="/teacher/:teacherId" element={<TeacherDetails />} />
 
                                 <Route element={<RouteGuard />}>
                                     <Route path="/logout" element={<Logout />} />
 
                                     <Route path="/teachers/create" element={<TeacherCreate />}/>
-                                    <Route path="/teacher/:teacherId" element={<TeacherDetails />} />
 
                                     <Route path="/test/create" element={<CreateTest />}/>
                                     <Route path="/test/:testId" element={<TestItem />}/>

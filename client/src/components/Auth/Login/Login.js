@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useForm } from "../../../hooks/useForm";
 import styles from "./Login.module.css";
@@ -6,7 +7,7 @@ import styles from "./Login.module.css";
 
 
 export const Login = () => {
-    const { onLoginSubmit } = useContext(AuthContext);
+    const { onLoginSubmit, isAuthenticated } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm(
         {
             email: '',
@@ -14,6 +15,12 @@ export const Login = () => {
         },
         onLoginSubmit
     );
+
+    if(isAuthenticated){
+        alert('You already logged in!');
+
+        return <Navigate to="/" />
+    }
 
     return (
         <section className={styles.login}>

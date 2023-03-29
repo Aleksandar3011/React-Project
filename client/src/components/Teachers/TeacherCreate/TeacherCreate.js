@@ -106,7 +106,7 @@ export const TeacherCreate = () => {
                     onChange={changeHandler}
                 ></textarea>
 
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">Price per lesson</label>
                 <input
                     type="text"
                     name="price"

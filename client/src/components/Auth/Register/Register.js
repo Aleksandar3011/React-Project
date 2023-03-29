@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useForm } from "../../../hooks/useForm";
 import styles from "./Register.module.css";
 
 export const Register = () => {
-    const { onRegisterSubmit } = useContext(AuthContext);
+    const { onRegisterSubmit, isAuthenticated } = useContext(AuthContext);
 
     const { values, changeHandler, onSubmit } = useForm(
         {
@@ -15,6 +16,12 @@ export const Register = () => {
         },
         onRegisterSubmit
     );
+
+    if(isAuthenticated){
+        alert('You already registered in!');
+
+        return <Navigate to="/" />
+    }
 
     return (
         <section className={styles.register}>

@@ -49,12 +49,22 @@ export const TestProvider = ({
         setCurrTest(result);
     };
 
+    const onTestDeleteClick = async (id) => {
+        
+        await testService.deleteTest(id);
+
+        setAllTest(state => state.filter(t => t._id !== id));
+        
+        navigate('/tests')
+    };
+
 
     const testContext = {
         onSaveQuestion,
         onSaveTest,
         onTestGetAll,
         onTestGetOne,
+        onTestDeleteClick,
         currTest,
         questions,
         allTest

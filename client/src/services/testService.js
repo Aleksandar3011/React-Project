@@ -18,5 +18,9 @@ export const testServiceFactory = (token) => {
             const response = await request.get(`${baseUrl}/${id}`);
             return response;
         },
+        deleteTest: async (id) => {
+            const response = await request.delete(`${baseUrl}/${id}`);
+            return response;
+        },
     }
 }

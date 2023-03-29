@@ -70,13 +70,13 @@ export const TestItem = () => {
             ( (isQuestions ? (<div className={styles.question_card}>
                     <h2 className={styles.currTest_outOf}>
                         Question {currentQuestion + 1} out of{" "}
-                        {isQuestions && questions.length}
+                        {questions.length}
                     </h2>
                     <h3 className={styles.currTest_question}>
-                        {isQuestions && questions[currentQuestion].testQuestion}
+                        {questions[currentQuestion].testQuestion}
                     </h3>
                     <ul className={styles.currTest_ul}>
-                        {isQuestions && questions[currentQuestion].options.sort(() => Math.random() - 0.2).map((option) => {
+                        {questions[currentQuestion].options.sort(() => Math.random() - 0.2).map((option) => {
                                 return (
                                     <li
                                         className={styles.currTest_li}

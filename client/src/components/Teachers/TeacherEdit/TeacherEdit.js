@@ -4,9 +4,12 @@ import styles from "../TeacherCreate/TeacherCreate.module.css";
 import { useForm } from "../../../hooks/useForm";
 import { TeacherContext } from "../../../contexts/TeacherContext";
 import { teacherServiceFactory } from "../../../services/teacherServices";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Navigate } from "react-router-dom";
 
 export const TeacherEdit = () => {
 
+    const {userId, isAuthenticated} = useContext(AuthContext);
     const { currTeacher, onTeacherUpdate } = useContext(TeacherContext);
 
     const teacherService = teacherServiceFactory();
@@ -14,16 +17,6 @@ export const TeacherEdit = () => {
 
     const { values, changeHandler, onSubmit, changeValues } = useForm(
         {
-            // imageUrl: `${currTeacher.imageUrl}`,
-            // firstName: `${currTeacher.firstName}`,
-            // secondName: `${currTeacher.secondName}`,
-            // school: `${currTeacher.school}`,
-            // city: `${currTeacher.city}`,
-            // subject: `${currTeacher.subject}`,
-            // description: `${currTeacher.description}`,
-            // price: `${currTeacher.price}`,
-            // email: `${currTeacher.email}`,
-            // phoneNumber: `${currTeacher.phoneNumber}`,
             imageUrl: "",
             firstName: "",
             secondName: "",
@@ -44,6 +37,21 @@ export const TeacherEdit = () => {
                 changeValues(result);
             });
     }, [currTeacher._id]);
+
+    console.log(isAuthenticated);
+
+    if(!isAuthenticated){
+        alert("You are not authenticated");
+
+        return <Navigate to='/register' />
+    }
+
+    if(userId !== currTeacher._ownerId){
+        console.log(`here`);
+        alert("You need to be creator on this teacher");
+
+        return <Navigate to='/teachers' />
+    };
 
     return (
         <section className={styles.teacherCreate}>

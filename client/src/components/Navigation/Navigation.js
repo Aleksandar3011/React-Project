@@ -60,7 +60,7 @@ export const Navigation = () => {
             {isAuthenticated && (
                 <ul className={`${styles.nav_register} ${styles.distance}`}>
                     <div className={styles.userInfo}>
-                        <span>{userEmail}</span>
+                        <span className={styles.userEmail}>{userEmail}</span>
                         <span className={styles.userInfo_type}>({userType})</span>
                     </div>
                     <li className={styles.signUp}>

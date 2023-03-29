@@ -26,15 +26,17 @@ export const QuestionItem = () => {
                     value={values.testQuestion}
                     onChange={changeHandler}
                 />
+                <p className={styles.scrambled}>(When the test is generated the answers will be scrambled)</p>
                 <label>
                     a:
                     <input
-                        className={styles.answer}
+                        className={`${styles.answer} ${styles.rigthAnswer}`}
+                        placeholder="In this input filed enter the right answer"
                         type="text"
                         name="firstAnswer"
                         value={values.firstAnswer}
                         onChange={changeHandler}
-                    /><span>RIGTH ANSWER</span>
+                    />
                 </label>
                 <label>
                     b:
@@ -67,7 +69,7 @@ export const QuestionItem = () => {
                     />
                 </label>
 
-                <input type="submit" value="Save Question" onClick={onSubmit}/>
+                <input className={styles.saveQuestion} type="submit" value="Save Question" onClick={onSubmit}/>
         </>
     );
 };

@@ -1,8 +1,95 @@
+.teacher_wrapper{
+    background-color: rgb(235, 235, 235);
+    padding-top: 38px;
+    min-height: 106vh;
+}
+
+.teacher{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    height: 100vh;
+    border: 1px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffed93c0;
+    margin-bottom: 32px;
+    box-shadow: inset 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+    -webkit-box-shadow: inset 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: inset 2px 3px 16px 0px rgba(0, 0, 0, 0.65);
+}
+
 .teacher .teacher_imgWrapper{
-    width: 15%;
+    width: 18%;
+    height: 120px;
+    border-radius: 60px;
+    border: 1px solid black;
+    overflow: hidden;
+    margin-left: 260px;
+    margin-top: 32px;
 }
 
 .teacher .teacher_imgWrapper .teacher_img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
+
+.teacher .teacher_desc{
+    margin: 0 auto;
+    width: 500px;
+    margin-bottom: 12px;
+}
+
+.teacher .teacher_name{
+    margin-bottom: 0px;
+}
+
+.teacher .teacher_price{
+    margin-bottom: 12px;
+}
+
+.teacher .teacher_btns{
+    margin-left: 480px;
+    margin-top: 32px;
+}
+
+.teacher .teacher_edit{
+    margin-right: 16px;
+    text-decoration: none;
+    background-color: #00A2FF;
+    color: white;
+    font-size: 16px;
+    padding: 6px 18px;
+    border-radius: 4px;
+    text-shadow: 1px 1px 1px black;
+}
+
+.teacher .teacher_edit:hover{
+    background-color: #007bc2ce;
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.teacher .teacher_delete{
+    margin-right: 12px;
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.541);
+    color: white;
+    font-size: 16px;
+    padding: 7px 18px;
+    border-radius: 4px;
+    border: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.teacher .teacher_delete:hover{
+    background-color: rgba(165, 1, 1, 0.541);
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+
+
