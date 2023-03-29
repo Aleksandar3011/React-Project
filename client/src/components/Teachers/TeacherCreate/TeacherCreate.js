@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import styles from "./TeacherCreate.module.css";
-// import * as teachersServices from "../../../services/teacherServices";
-// import { useNavigate } from "react-router-dom";
 import { useForm } from "../../../hooks/useForm";
 import { TeacherContext } from "../../../contexts/TeacherContext";
+import { AuthContext } from "../../../contexts/AuthContext";
+import { Navigate } from "react-router-dom";
 
 export const TeacherCreate = () => {
+
     const { onTeacherCreate } = useContext(TeacherContext);
+    const { userType } = useContext(AuthContext);
 
     const { values, changeHandler, onSubmit } = useForm(
         {
@@ -25,6 +27,11 @@ export const TeacherCreate = () => {
         },
         onTeacherCreate
     );
+
+        if(userType !== 'teacher'){
+            alert("You need to be teacher!");
+            return <Navigate to ='/teachers' />;
+        };
 
     return (
         <section className={styles.teacherCreate}>

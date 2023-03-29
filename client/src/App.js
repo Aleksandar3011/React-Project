@@ -3,6 +3,7 @@ import { AboutUs } from "./components/About/About";
 import { Login } from "./components/Auth/Login/Login";
 import { Logout } from "./components/Auth/Logout/Logout";
 import { Register } from "./components/Auth/Register/Register";
+import { RouteGuard } from "./components/common/RouteGuard";
 
 import { HomeScreen } from "./components/HomeScreen/HomeScreen";
 import { Navigation } from "./components/Navigation/Navigation";
@@ -31,15 +32,20 @@ function App() {
                                 <Route path="/about" element={<AboutUs />} />
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/register" element={<Register />} />
-                                <Route path="/logout" element={<Logout />} />
                                 <Route path="/teachers" element={<TeacheList />} />
-                                <Route path="/teachers/create" element={<TeacherCreate />}/>
-                                <Route path="/teacher/:teacherId" element={<TeacherDetails />} />
                                 <Route path="/teacher/:teacherId/edit" element={<TeacherEdit />} />
-
                                 <Route path="/tests" element={<TestList />}/>
-                                <Route path="/test/create" element={<CreateTest />}/>
-                                <Route path="/test/:testId" element={<TestItem />}/>
+
+                                <Route element={<RouteGuard />}>
+                                    <Route path="/logout" element={<Logout />} />
+
+                                    <Route path="/teachers/create" element={<TeacherCreate />}/>
+                                    <Route path="/teacher/:teacherId" element={<TeacherDetails />} />
+
+                                    <Route path="/test/create" element={<CreateTest />}/>
+                                    <Route path="/test/:testId" element={<TestItem />}/>
+                                </Route>
+                                
 
                                 <Route path="*" element={<h1>404</h1>} />
                             </Routes>

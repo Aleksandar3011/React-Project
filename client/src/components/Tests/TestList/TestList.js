@@ -12,18 +12,19 @@ export const TestList = () => {
     useEffect(() => {
         onTestGetAll();
     }, []);
+    
 
     return (
         <>
             <h1 className={styles.tests_title}>Tests</h1>
-            {allTest.map((t) => (
+            {allTest ? (allTest.map((t) => (
                 <article className={styles.test} key={uuidv4()}>
                     <h2>{t.title}</h2>
                     <h4>Subject: {t.subject}</h4>
                     <p className={styles.test_owner}>Created by: <span>{t.owner}</span></p>
                     <Link className={styles.test_startTest} to={`/test/${t._id}`}>Start Test</Link>
                 </article>
-            ))}
+            ))): <h1>There is no tests!</h1>}
         </>
     );
 };

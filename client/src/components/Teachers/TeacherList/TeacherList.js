@@ -19,12 +19,11 @@ export const TeacheList = () => {
                     <h1 className={styles.title}>Teachers</h1>
                     <h4 className={styles.slogan}>Some subtitle here</h4>
                 </div>
-
-                <section className={`${styles.teachers_cards} ${styles.distance}`}>
+                {teachers ? <section className={`${styles.teachers_cards} ${styles.distance}`}>
                     {teachers.map((teacher) => (
                         <Teacher key={teacher._id} teacher={teacher} />
                     ))}
-                </section>
+                </section> : <h1>There is no teachers!</h1>}
         </main>
     );
 };

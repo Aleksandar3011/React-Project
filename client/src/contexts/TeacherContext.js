@@ -29,8 +29,13 @@ export const TeacherProvider = ({
     };
 
     const onTeacherGetAll = async () => {
-       const result = await teacherService.getAll();
-       setTeachers(result)
+        try {
+            const result = await teacherService.getAll();
+            setTeachers(result)
+        } catch (error) {
+            setTeachers(false)
+        }
+        
     };
 
     const onGetOne = async (teacherId) => {

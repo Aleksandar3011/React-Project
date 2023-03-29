@@ -16,10 +16,8 @@ export const TestProvider = ({
     const [questions, setQuestions] = useState([]);
     const [currTest, setCurrTest] = useState({});
     const [allTest, setAllTest] = useState([]);
-    // const [answers, setAnswers] = useState([]);
 
     const onSaveQuestion = (values) => {
-        // setQuestions(state => [...state, values]);
         setQuestions(state => state.concat({
                 testQuestion: values.testQuestion,
                 options: [
@@ -37,8 +35,13 @@ export const TestProvider = ({
     };
 
     const onTestGetAll = async () => {
-        const result = await testService.getAll();
-        setAllTest(result)
+        try {
+            const result = await testService.getAll();
+            setAllTest(result)            
+        } catch (error) {
+            setAllTest(false)
+        }
+            
     };
 
     const onTestGetOne = async (id) => {
@@ -46,17 +49,12 @@ export const TestProvider = ({
         setCurrTest(result);
     };
 
-    // const onAnswers = (values) => {
-    //     setAnswers(values)
-    // };
-
 
     const testContext = {
         onSaveQuestion,
         onSaveTest,
         onTestGetAll,
         onTestGetOne,
-        // onAnswers,
         currTest,
         questions,
         allTest

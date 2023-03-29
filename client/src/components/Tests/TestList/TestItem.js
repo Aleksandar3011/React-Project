@@ -65,8 +65,9 @@ export const TestItem = () => {
                     </button>
                     <Link className={styles.final_exit} to='/tests'>Exit</Link>
                 </div>
-            ) : (
-                <div className={styles.question_card}>
+            ) 
+            : 
+            ( (isQuestions ? (<div className={styles.question_card}>
                     <h2 className={styles.currTest_outOf}>
                         Question {currentQuestion + 1} out of{" "}
                         {isQuestions && questions.length}
@@ -75,8 +76,7 @@ export const TestItem = () => {
                         {isQuestions && questions[currentQuestion].testQuestion}
                     </h3>
                     <ul className={styles.currTest_ul}>
-                        {isQuestions &&
-                            questions[currentQuestion].options.map((option) => {
+                        {isQuestions && questions[currentQuestion].options.sort(() => Math.random() - 0.2).map((option) => {
                                 return (
                                     <li
                                         className={styles.currTest_li}
@@ -90,8 +90,9 @@ export const TestItem = () => {
                                 );
                             })}
                     </ul>
-                </div>
+                </div>) : <h1>This test doesn't exist!</h1> )
+                
             )}
-        </div>
+        </div> 
     );
 };
