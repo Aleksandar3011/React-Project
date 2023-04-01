@@ -40,7 +40,7 @@ export const Navigation = () => {
                     </li>
                     {isAuthenticated && userType === "teacher" && (
                         <li>
-                            <Link to="/teachers/create">Create a Teacher</Link>
+                            <Link to="/teachers/create">Create Teacher</Link>
                         </li>
                     )}
                 </ul>

@@ -35,7 +35,7 @@ export const TeacherCreate = () => {
 
     return (
         <section className={styles.teacherCreate}>
-            <h1 className={styles.teacherCreate_title}>Create a Teacher</h1>
+            <h1 className={styles.teacherCreate_title}>Create Teacher</h1>
             <form className={styles.teacherCreate_form} onSubmit={onSubmit}>
                 <label htmlFor="imageUrl">Image</label>
                 <input

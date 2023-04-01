@@ -60,6 +60,12 @@
 .createTest .createTest_submit{
   background-color: #00a2ff;
   font-size: 14px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .createTest .createTest_submit:hover{
@@ -109,9 +115,17 @@
 .saveQuestion{
   margin-right: 18px;
   font-size: 14px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .saveQuestion:hover{
+  background-color: #428d46;
   -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
   box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);

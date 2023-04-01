@@ -26,7 +26,7 @@ export const TestProvider = ({
                     {id: 2, text: values.thirdAnswer},
                     {id: 3, text: values.fourthAnswer}
                 ],
-            }))
+            }));
     };
 
     const onSaveTest = async (values) => {

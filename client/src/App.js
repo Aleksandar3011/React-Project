@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+
 import { AboutUs } from "./components/About/About";
 import { Login } from "./components/Auth/Login/Login";
 import { Logout } from "./components/Auth/Logout/Logout";
 import { Register } from "./components/Auth/Register/Register";
+import { PageNotFound } from "./components/common/404";
 import { RouteGuard } from "./components/common/RouteGuard";
 
 import { HomeScreen } from "./components/HomeScreen/HomeScreen";
@@ -47,7 +49,7 @@ function App() {
                                 </Route>
                                 
 
-                                <Route path="*" element={<h1>404</h1>} />
+                                <Route path="*" element={<PageNotFound />} />
                             </Routes>
                         </header>
                     </div>

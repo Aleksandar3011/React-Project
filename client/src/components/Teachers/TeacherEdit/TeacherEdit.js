@@ -38,7 +38,7 @@ export const TeacherEdit = () => {
             });
     }, [currTeacher._id]);
 
-    console.log(isAuthenticated);
+    // console.log(isAuthenticated);
 
     if(!isAuthenticated){
         alert("You are not authenticated");
@@ -47,7 +47,7 @@ export const TeacherEdit = () => {
     }
 
     if(userId !== currTeacher._ownerId){
-        console.log(`here`);
+        // console.log(`here`);
         alert("You need to be creator on this teacher");
 
         return <Navigate to='/teachers' />

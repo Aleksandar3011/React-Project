@@ -15,6 +15,8 @@ export const TestItem = () => {
         onTestGetOne(testId.testId);
     }, [testId]);
 
+    console.log(currTest);
+
     let isQuestions = false;
     let questions = currTest.questions;
     if (questions) {

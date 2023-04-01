@@ -15,7 +15,7 @@ export const TeacheList = () => {
 
     let isTeacher = true;
 
-    if(teachers.length === 0){
+    if(teachers.length === 0 || !teachers){
         isTeacher = false
     }
 
