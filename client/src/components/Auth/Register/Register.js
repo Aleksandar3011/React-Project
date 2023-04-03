@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useForm } from "../../../hooks/useForm";
 import styles from "./Register.module.css";
@@ -25,10 +25,11 @@ export const Register = () => {
 
     return (
         <section className={styles.register}>
-            <h1 className={styles.register_title}>Register</h1>
+            <h1 className={styles.register_title}>Sign Up</h1>
             <form className={styles.register_form} onSubmit={onSubmit}>
-                <label htmlFor="email">Email</label>
+                <label className={styles.label} htmlFor="email">Email</label>
                 <input
+                    className={styles.input}
                     type="email"
                     id="email"
                     name="email"
@@ -37,8 +38,9 @@ export const Register = () => {
                     onChange={changeHandler}
                 ></input>
 
-                <label htmlFor="password">Password</label>
+                <label className={styles.label} htmlFor="password">Password</label>
                 <input
+                    className={styles.input}
                     type="password"
                     id="password"
                     name="password"
@@ -47,8 +49,9 @@ export const Register = () => {
                     onChange={changeHandler}
                 ></input>
 
-                <label htmlFor="confPassword">Confirm Password</label>
+                <label className={styles.label} htmlFor="confPassword">Confirm Password</label>
                 <input
+                    className={styles.input}
                     type="password"
                     id="confPassword"
                     name="confPassword"
@@ -85,6 +88,8 @@ export const Register = () => {
                     type="submit"
                     value="Register"
                 />
+
+                <p className={styles.haveAcc}>If you already have an account click <Link to="/login">Here</Link></p>
             </form>
         </section>
     );

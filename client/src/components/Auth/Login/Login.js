@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { useForm } from "../../../hooks/useForm";
 import styles from "./Login.module.css";
@@ -24,10 +24,11 @@ export const Login = () => {
 
     return (
         <section className={styles.login}>
-            <h1 className={styles.login_title}>Login</h1>
+            <h1 className={styles.login_title}>Sign In</h1>
             <form className={styles.login_form} method="POST" onSubmit={onSubmit}>
-                <label htmlFor="email">Email</label>
+                <label className={styles.label} htmlFor="email">Email</label>
                 <input
+                    className={styles.input}
                     type="email"
                     id="email"
                     placeholder="ivan.ivanov@abv.bg"
@@ -36,8 +37,9 @@ export const Login = () => {
                     onChange={changeHandler}
                 />
 
-                <label htmlFor="password">Password</label>
+                <label className={styles.label} htmlFor="password">Password</label>
                 <input
+                    className={styles.input}
                     type="password"
                     id="password"
                     placeholder="*******"
@@ -51,6 +53,8 @@ export const Login = () => {
                     className={styles.login_btn}
                     value="Login"
                 />
+
+                <p className={styles.dontAcc}>If you don't have account click <Link to="/register">here</Link></p>
             </form>
         </section>
     );

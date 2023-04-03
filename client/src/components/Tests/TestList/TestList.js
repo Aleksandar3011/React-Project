@@ -11,7 +11,7 @@ import styles from "./TestList.module.css";
 
 const getFilteredItems = (query, items) => {
     let upperQuery = query.toUpperCase();
-    console.log(upperQuery);
+
     if (!query) {
         return items;
     };

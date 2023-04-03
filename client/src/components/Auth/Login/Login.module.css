@@ -25,28 +25,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     margin-top: 32px;
-    border: 1px solid rgba(0, 0, 0, 0.342);
     border-radius: 16px;
     width: 30%;
     height: 60%;
+    background-color: #00a2ff;
+    -webkit-box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.75);
 }
 
-.login .login_form input{
+.login .login_form .input{
     width: 300px;
     height: 30px;
     font-size: 18px;
+    border-radius: 12px;
+    border: 1px solid black;
+    padding-left: 8px;
+
 }
 
-.login .login_form label{
-    font-size: 18px;
+.login .login_form .label{
+    font-size: 22px;
     padding-bottom: 2px;
-    padding-top: 16px;
+    margin-bottom: 0px;
+    padding-top: 32px;
 }
 
 .login .login_form .login_btn{
-    margin-top: 24px;
+    margin-top: 28px;
+    margin-bottom: 16px;
     width: 100px;
     height: 32px;
     font-size: 18px;
@@ -54,4 +62,9 @@
     border: 1px solid rgba(0, 0, 0, 0.281);
     background-color: #fade4d;
     cursor: pointer;
+}
+
+.login .login_form .dontAcc{
+    font-size: 14px;
+    color: rgb(68, 68, 68);
 }

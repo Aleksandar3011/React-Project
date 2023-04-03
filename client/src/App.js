@@ -26,7 +26,7 @@ function App() {
             <TeacherProvider>
                 <TestProvider>
                     <div className="App">
-                        <header className="App-header">
+                        {/* <header className="App-header"> */}
                             <Navigation />
 
                             <Routes>
@@ -51,7 +51,7 @@ function App() {
 
                                 <Route path="*" element={<PageNotFound />} />
                             </Routes>
-                        </header>
+                        {/* </header> */}
                     </div>
                 </TestProvider>
             </TeacherProvider>
