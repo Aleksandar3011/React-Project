@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 import styles from "./Navigation.module.css";
 import logo from "../../images/logo.png";
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
-
 export const Navigation = () => {
     const { isAuthenticated, userEmail, userType } = useContext(AuthContext);
 
     return (
         <header className={styles.header}>
             <div className={styles.header_nav}>
-                {/* `${styles.logo} ${styles.distance}` */}
                 <div className={`${styles.logo} ${styles.distance}`}>
                     <img className={styles.logo_img} src={logo} alt="" />
                 </div>

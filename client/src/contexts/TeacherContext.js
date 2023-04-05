@@ -13,7 +13,6 @@ export const TeacherProvider = ({
     
     const teacherService = teacherServiceFactory(token);
 
-
     const navigate = useNavigate();
     const [teachers, setTeachers] = useState([]);
     const [currTeacher, setCurrTeacher] = useState({})
@@ -39,9 +38,13 @@ export const TeacherProvider = ({
     };
 
     const onGetOne = async (teacherId) => {
-        const result = await teacherService.getOne(teacherId);
-        setCurrTeacher(result);
-        return;
+        try {
+            const result = await teacherService.getOne(teacherId);
+            setCurrTeacher(result);
+        } catch (error) {
+            alert(error.message);
+            navigate(`/teachers`);
+        }
     };
 
     const onTeacherUpdate = async (values) => {

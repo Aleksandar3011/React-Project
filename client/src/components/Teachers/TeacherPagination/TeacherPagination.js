@@ -1,24 +1,24 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styles from "../TeacherList/TeacherList.module.css"
 import { Teacher } from "../TeacherList/Teacher";
-import { Pages } from "./Pages";
+import { Pages } from "./TeacherPages";
 
 export const Pagination = ({ teachers }) => {
-    // const [data, setData] = useState(teachers);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [teachersPerPage, setTeachersPerPage] = useState(5);
+    const [teachersPerPage, setTeachersPerPage] = useState(3);
 
     const lastTeacherIndex = currentPage * teachersPerPage;
     const firstTeacherIndex = lastTeacherIndex - teachersPerPage;
 
-    const currentTeachers = teachers.slice(firstTeacherIndex, lastTeacherIndex);
-
     let isTeacher = true;
-
+    
     if (teachers.length === 0 || !teachers) {
         isTeacher = false;
     };
+    
+    const currentTeachers = isTeacher ? teachers.slice(firstTeacherIndex, lastTeacherIndex) : [];
 
     return (
         <>
@@ -37,21 +37,5 @@ export const Pagination = ({ teachers }) => {
             )}
             <Pages totalTeachers={teachers.length} teachersPerPage={teachersPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </>
-
-        // <>
-        // {
-        //     isTeacher ? (
-        //         <section>
-        //         <h1>Available users</h1>
-        //         <ul>
-        //         {users.map(user =>
-        //         <li>{user.name}</li>)}
-        //         </ul>
-        //         </section>
-        //         ) : (
-        //             <p>No user available.</p>
-        //             )
-        //         }
-        // </>
     );
 };

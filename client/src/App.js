@@ -19,6 +19,7 @@ import { TestList } from "./components/Tests/TestList/TestList";
 import { AuthProvider } from "./contexts/AuthContext";
 import { TeacherProvider } from "./contexts/TeacherContext";
 import { TestProvider } from "./contexts/TestContext";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
     return (
@@ -26,7 +27,7 @@ function App() {
             <TeacherProvider>
                 <TestProvider>
                     <div className="App">
-                        {/* <header className="App-header"> */}
+    
                             <Navigation />
 
                             <Routes>
@@ -51,7 +52,8 @@ function App() {
 
                                 <Route path="*" element={<PageNotFound />} />
                             </Routes>
-                        {/* </header> */}
+
+                        <Footer />
                     </div>
                 </TestProvider>
             </TeacherProvider>

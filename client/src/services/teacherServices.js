@@ -5,7 +5,6 @@ const baseUrl = "http://localhost:3030/data/teachers";
 export const teacherServiceFactory = (token) => {
     const request = requestFactory(token);
 
-
     return {
         getAll: async () => {
             const response = await request.get(baseUrl);

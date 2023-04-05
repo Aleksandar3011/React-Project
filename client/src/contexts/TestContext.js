@@ -30,8 +30,13 @@ export const TestProvider = ({
     };
 
     const onSaveTest = async (values) => {
-        await testService.create({...values, questions});
-        navigate('/tests')
+        if(questions.length !== 0){
+            await testService.create({...values, questions});
+            setQuestions([])
+            navigate('/tests')
+        }else{
+            alert("You need to add questions!")
+        }
     };
 
     const onTestGetAll = async () => {
@@ -45,8 +50,12 @@ export const TestProvider = ({
     };
 
     const onTestGetOne = async (id) => {
-        const result = await testService.getOne(id);
-        setCurrTest(result);
+        try {
+            const result = await testService.getOne(id);
+            setCurrTest(result);
+        } catch (error) {
+            alert(error.message)
+        }
     };
 
     const onTestDeleteClick = async (id) => {

@@ -45,7 +45,7 @@ export const TeacherDetails = () => {
                 </p>
 
                 <p className={styles.teacher_desc}>
-                    <b>Desctipiton:</b> {currTeacher.description}
+                    <b>Desctipiton:</b><br /> {currTeacher.description}
                 </p>
 
                 <span className={styles.teacher_price}>

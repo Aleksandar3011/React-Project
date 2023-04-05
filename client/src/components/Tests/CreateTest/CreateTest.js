@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { TestContext } from "../../../contexts/TestContext";
-import { useForm } from "../../../hooks/useForm";
-import styles from "./CreateTest.module.css";
 
+import { TestContext } from "../../../contexts/TestContext";
+import { useCustomForm } from "../../../hooks/useCustomForm";
 import { QuestionItem } from "./QuestionItem";
 
+import styles from "./CreateTest.module.css";
+import errorStyle from "../../common/Validation.module.css"
 export const CreateTest = () => {
     const { onSaveTest } = useContext(TestContext);
 
-    const { values, changeHandler, onSubmit } = useForm(
+    const { values, changeHandler, onSubmit, error } = useCustomForm(
         {
             title: "",
             subject: "",
@@ -22,7 +23,7 @@ export const CreateTest = () => {
             <h1 className={styles.createTest_title}>Create Test</h1>
             <section className={styles.createTest_section}>
                 <form onSubmit={onSubmit} className={styles.createTest_form}>
-                    
+                {error.title && <p className={errorStyle.error}>{error.title}</p>}
                     <input
                         type="text"
                         placeholder="Test Name"
@@ -30,8 +31,10 @@ export const CreateTest = () => {
                         name="title"
                         value={values.title}
                         onChange={changeHandler}
+                        required
                     />
                     <br></br>
+                {error.subject && <p className={errorStyle.error}>{error.subject}</p>}
                     <input
                         type="text"
                         placeholder="SUBJECT"
@@ -39,8 +42,10 @@ export const CreateTest = () => {
                         name="subject"
                         value={values.subject}
                         onChange={changeHandler}
+                        required
                     />
                     <br></br>
+                {error.owner && <p className={errorStyle.error}>{error.owner}</p>}
                     <input
                         type="text"
                         placeholder="First Name and Last Name"
@@ -48,6 +53,7 @@ export const CreateTest = () => {
                         name="owner"
                         value={values.owner}
                         onChange={changeHandler}
+                        required
                     />
                     <br></br>
 

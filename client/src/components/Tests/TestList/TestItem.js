@@ -19,7 +19,7 @@ export const TestItem = () => {
     let questions = currTest.questions;
     if (questions) {
         isQuestions = true;
-    }
+    };
 
     const optionClicked = (isCorrect) => {
         if (isCorrect) {
@@ -40,7 +40,7 @@ export const TestItem = () => {
 
     return (
         <div className={styles.currTest}>
-            {/* // 1.Header */}
+
             <div className={styles.currTest_header}>
                 <h1 className={styles.currTest_title}>{currTest.title}</h1>
                 <h3 className={styles.currTest_owner}>
@@ -50,8 +50,6 @@ export const TestItem = () => {
                     Subject: {currTest.subject}
                 </h2>
             </div>
-            {/* //   2. Current Score */}
-            {/* <h2 className={styles.currTest_currentScore}>Current Score: {score}</h2> */}
 
             {showFinalResult ? (
                 <div className={styles.final_result}>
@@ -76,7 +74,7 @@ export const TestItem = () => {
                         {questions[currentQuestion].testQuestion}
                     </h3>
                     <ul className={styles.currTest_ul}>
-                        {questions[currentQuestion].options.sort(() => Math.random() - 0.2).map((option) => {
+                        {questions[currentQuestion].options.sort(() => Math.random() - 0.5).map((option) => {
                                 return (
                                     <li
                                         className={styles.currTest_li}

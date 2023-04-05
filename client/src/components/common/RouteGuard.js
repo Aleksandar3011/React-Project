@@ -8,7 +8,6 @@ export const RouteGuard = () => {
     const { isAuthenticated } = useContext(AuthContext);
 
     if(!isAuthenticated){
-        // const notification = new Notification("You need to be authenticated");
         alert("You need to be authenticated");
 
        return <Navigate to='/login' />

@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect } from "react";
-import styles from "../TeacherCreate/TeacherCreate.module.css";
-import { useForm } from "../../../hooks/useForm";
+import { Navigate } from "react-router-dom";
+
+import { useCustomForm } from "../../../hooks/useCustomForm";
 import { TeacherContext } from "../../../contexts/TeacherContext";
 import { teacherServiceFactory } from "../../../services/teacherServices";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { Navigate } from "react-router-dom";
 
+import errorStyle from '../../common/Validation.module.css'
+import styles from "../TeacherCreate/TeacherCreate.module.css";
 export const TeacherEdit = () => {
 
     const {userId, isAuthenticated} = useContext(AuthContext);
@@ -15,7 +17,7 @@ export const TeacherEdit = () => {
     const teacherService = teacherServiceFactory();
 
 
-    const { values, changeHandler, onSubmit, changeValues } = useForm(
+    const { values, changeHandler, onSubmit, changeValues, error } = useCustomForm(
         {
             imageUrl: "",
             firstName: "",
@@ -38,16 +40,15 @@ export const TeacherEdit = () => {
             });
     }, [currTeacher._id]);
 
-    // console.log(isAuthenticated);
 
     if(!isAuthenticated){
         alert("You are not authenticated");
 
         return <Navigate to='/register' />
-    }
+    };
 
     if(userId !== currTeacher._ownerId){
-        // console.log(`here`);
+        console.log("Here");
         alert("You need to be creator on this teacher");
 
         return <Navigate to='/teachers' />
@@ -68,6 +69,7 @@ export const TeacherEdit = () => {
                 ></input>
 
                 <label htmlFor="firstName">First Name</label>
+                {error.firstName && <p className={errorStyle.error}>{error.firstName}</p>}
                 <input
                     type="text"
                     name="firstName"
@@ -75,9 +77,11 @@ export const TeacherEdit = () => {
                     placeholder="Ivan"
                     value={values.firstName}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="secondName">Last Name</label>
+                {error.secondName && <p className={errorStyle.error}>{error.secondName}</p>}
                 <input
                     type="text"
                     name="secondName"
@@ -85,9 +89,11 @@ export const TeacherEdit = () => {
                     placeholder="Ivanov"
                     value={values.secondName}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="secondName">School Name / Freelance</label>
+                {error.school && <p className={errorStyle.error}>{error.school}</p>}
                 <input
                     type="text"
                     name="school"
@@ -95,9 +101,11 @@ export const TeacherEdit = () => {
                     placeholder="British School Of Sofia"
                     value={values.school}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="secondName">City</label>
+                {error.city && <p className={errorStyle.error}>{error.city}</p>}
                 <input
                     type="text"
                     name="city"
@@ -105,9 +113,11 @@ export const TeacherEdit = () => {
                     placeholder="Sofia"
                     value={values.city}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="subject">Subject</label>
+                {error.subject && <p className={errorStyle.error}>{error.subject}</p>}
                 <input
                     type="text"
                     name="subject"
@@ -115,15 +125,18 @@ export const TeacherEdit = () => {
                     placeholder="Mathematics"
                     value={values.subject}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="description">Desctipiton</label>
+                {error.description && <p className={errorStyle.error}>{error.description}</p>}
                 <textarea
                     type="text"
                     name="description"
                     id="description"
                     value={values.description}
                     onChange={changeHandler}
+                    required
                 ></textarea>
 
                 <label htmlFor="price">Price</label>
@@ -134,6 +147,7 @@ export const TeacherEdit = () => {
                     placeholder="20"
                     value={values.price}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="email">Email</label>
@@ -144,9 +158,11 @@ export const TeacherEdit = () => {
                     placeholder="ivan.ivanov@abv.bg"
                     value={values.email}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <label htmlFor="phoneNumber">Phone Number</label>
+                {error.phoneNumber && <p className={errorStyle.error}>{error.phoneNumber}</p>}
                 <input
                     type="text"
                     name="phoneNumber"
@@ -154,6 +170,7 @@ export const TeacherEdit = () => {
                     placeholder="+3598........"
                     value={values.phoneNumber}
                     onChange={changeHandler}
+                    required
                 ></input>
 
                 <input

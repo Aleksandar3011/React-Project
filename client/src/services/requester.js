@@ -10,27 +10,27 @@ const requester = async (method, token, url, data) => {
             };
 
             options.body = JSON.stringify(data);
-        }
-    }
+        };
+    };
 
     if (token) {
         options.headers = {
             ...options.headers,
             'X-Authorization': token,
         };
-    }
+    };
 
     const response = await fetch(url, options);
 
     if (response.status === 204) {
         return {};
-    }
+    };
 
     const result = await response.json();
 
     if (!response.ok) {
         throw result;
-    }
+    };
 
     return result;
 };
@@ -43,7 +43,7 @@ export const requestFactory = (token) => {
             const auth = JSON.parse(serializedAuth);
             token = auth.accessToken;
         }
-    }
+    };
 
     return {
         get: requester.bind(null, 'GET', token),
@@ -51,5 +51,5 @@ export const requestFactory = (token) => {
         put: requester.bind(null, 'PUT', token),
         patch: requester.bind(null, 'PATCH', token),
         delete: requester.bind(null, 'DELETE', token),
-    }
+    };
 };

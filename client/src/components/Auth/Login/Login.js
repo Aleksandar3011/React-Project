@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { useForm } from "../../../hooks/useForm";
+import { useCustomForm } from "../../../hooks/useCustomForm";
 import styles from "./Login.module.css";
 
 
 
 export const Login = () => {
     const { onLoginSubmit, isAuthenticated } = useContext(AuthContext);
-    const { values, changeHandler, onSubmit } = useForm(
+    const { values, changeHandler, onSubmit } = useCustomForm(
         {
             email: '',
             password: '',
