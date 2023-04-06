@@ -7,6 +7,7 @@ This application has been made to a website so that students, teachers or people
 
 # Start the project
 To start the project you need to open two terminals.
+
     First terminal: cd client
                     npm i
                     npm start
